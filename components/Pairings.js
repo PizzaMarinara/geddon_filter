@@ -2,7 +2,9 @@ var objTeam = {};
 var pairingArray = [];
 var colonnaOrdinata = 1;
 
-export default function Pairings() {
+
+
+export default async function Pairings() {
     return (richiestaJson())
 }
 
