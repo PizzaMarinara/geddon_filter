@@ -3,7 +3,7 @@ var pairingArray = [];
 var colonnaOrdinata = 1;
 
 
-
+/*
 export default async function Pairings() {
     var element = <table class="myTable" id="myTable">
     <tbody><tr class="header">
@@ -14,11 +14,26 @@ export default async function Pairings() {
         <th>Points</th>
     </tr>
 
-    </tbody><tbody id="mioTable"></tbody></table>
+    </tbody><tbody id="mioTable">{html}</tbody></table>
     var html = await richiestaJson()
     element.getElementById('mioTable').innerHTML = html
     return element
 }
+*/
+
+export default async function Pairings() {
+    let user = await richiestaJson();
+    return <table class="myTable" id="myTable">
+    <tbody><tr class="header">
+        <th id="titoloNumTav" onclick="sortTable(0)">Table</th>
+        <th id="titoloNomeP1" onclick="sortTable(1)">Player 1 ▼</th>
+        <th>Points</th>
+        <th>Player 2</th>
+        <th>Points</th>
+    </tr>
+
+    </tbody><tbody id="mioTable">{html}</tbody></table>;
+  }
 
 //richiama json
 async function richiestaJson() {
