@@ -15,7 +15,8 @@ export async function Pairings() {
     </tr>
 
     </tbody><tbody id="mioTable"></tbody></table>
-    element.getElementById('mioTable').innerHTML = richiestaJson()
+    var html = await richiestaJson()
+    element.getElementById('mioTable').innerHTML = html
     return element
 }
 
