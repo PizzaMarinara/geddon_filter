@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import Pairings2 from '@components/Pairings2'
+import Pairings from '@components/Pairings'
 
 export default function Home() {
   return (
@@ -16,9 +16,8 @@ export default function Home() {
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
+        <Pairings/>
       </main>
-
-      <Pairings2 />
 
       <Footer />
     </div>
