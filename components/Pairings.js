@@ -5,7 +5,7 @@ var colonnaOrdinata = 1;
 
 
 export default async function Pairings() {
-    return (richiestaJson())
+    return richiestaJson()
 }
 
 //richiama json
@@ -14,10 +14,10 @@ async function richiestaJson() {
   const rispostaJson = await fetch(nomeJson)
   //const rispostaJson = await fetch("https://cors-anywhere.herokuapp.com/https://whatsmytable.com/jsonFile/event.json");
   const datiJson = await rispostaJson.json();
-  modificaTitolo(datiJson.data);
+  // modificaTitolo(datiJson.data);
   arrayGiocatori(datiJson.data);
   generaPairings(datiJson.data);
-  stampaPairings(pairingArray);
+  return stampaPairings(pairingArray);
 }
 
 function modificaTitolo(dati) {
@@ -98,7 +98,7 @@ function stampaPairings(data){
                   </tr>`
         contenutoTable += row;
     }
-    table.innerHTML = contenutoTable
+    return contenutoTable
 }
 
 function sortTable(colonna){//da migliorare per qualsiasi numero di colonne
