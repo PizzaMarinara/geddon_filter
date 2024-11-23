@@ -4,7 +4,7 @@ var colonnaOrdinata = 1;
 
 
 
-export default async function Pairings() {
+export async function Pairings() {
     var element = <table class="myTable" id="myTable">
     <tbody><tr class="header">
         <th id="titoloNumTav" onclick="sortTable(0)">Table</th>
@@ -16,7 +16,7 @@ export default async function Pairings() {
 
     </tbody><tbody id="mioTable"></tbody></table>
     element.getElementById('mioTable').innerHTML = richiestaJson()
-    return {element}
+    return element
 }
 
 //richiama json
