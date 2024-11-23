@@ -22,7 +22,7 @@ export default async function Pairings() {
 */
 
 export default async function Pairings() {
-    let user = await richiestaJson();
+    let html = await richiestaJson();
     return <table class="myTable" id="myTable">
     <tbody><tr class="header">
         <th id="titoloNumTav" onclick="sortTable(0)">Table</th>
