@@ -5,7 +5,18 @@ var colonnaOrdinata = 1;
 
 
 export default async function Pairings() {
-    return richiestaJson()
+    var element = <table class="myTable" id="myTable">
+    <tbody><tr class="header">
+        <th id="titoloNumTav" onclick="sortTable(0)">Table</th>
+        <th id="titoloNomeP1" onclick="sortTable(1)">Player 1 ▼</th>
+        <th>Points</th>
+        <th>Player 2</th>
+        <th>Points</th>
+    </tr>
+
+    </tbody><tbody id="mioTable"></tbody></table>
+    element.getElementById('mioTable').innerHTML = stampaPairings()
+    return element
 }
 
 //richiama json
