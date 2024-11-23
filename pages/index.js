@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import Pairings from '@components/Pairings'
 
 export default function Home() {
   return (
@@ -16,6 +17,8 @@ export default function Home() {
           Get started by editing <code>pages/index.js</code>
         </p>
       </main>
+
+      <Pairings />
 
       <Footer />
     </div>
