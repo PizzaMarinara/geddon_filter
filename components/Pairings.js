@@ -16,7 +16,7 @@ export default async function Pairings() {
 
     </tbody><tbody id="mioTable"></tbody></table>
     element.getElementById('mioTable').innerHTML = richiestaJson()
-    return element
+    return {element}
 }
 
 //richiama json
