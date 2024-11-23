@@ -4,7 +4,7 @@ var colonnaOrdinata = 1;
 
 
 
-export async function Pairings() {
+export default async function Pairings() {
     var element = <table class="myTable" id="myTable">
     <tbody><tr class="header">
         <th id="titoloNumTav" onclick="sortTable(0)">Table</th>
