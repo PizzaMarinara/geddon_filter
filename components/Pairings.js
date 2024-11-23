@@ -19,6 +19,10 @@ export default async function Pairings() {
     return element
 }
 
+export default function Pairings2() {
+    <h1 className="title">PAIRINGS2</h1>
+}
+
 //richiama json
 async function richiestaJson() {
   const nomeJson = "https://whatsmytable.com/Paupergeddon/jsonFile/event.json?v=" + Date.now()

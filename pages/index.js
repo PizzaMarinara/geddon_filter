@@ -18,7 +18,7 @@ export default function Home() {
         </p>
       </main>
 
-      <Pairings />
+      <Pairings2 />
 
       <Footer />
     </div>
