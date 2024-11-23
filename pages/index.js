@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import Pairings from '@components/Pairings'
+import Pairings2 from '@components/Pairings2'
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         </p>
       </main>
 
-      <Pairings2 />
+      <Pairings2>
 
       <Footer />
     </div>
