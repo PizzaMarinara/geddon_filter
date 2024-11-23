@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 var objTeam = {};
 var pairingArray = [];
 var colonnaOrdinata = 1;
@@ -21,8 +23,51 @@ export default async function Pairings() {
 }
 */
 
+
+function Pairings() {
+    const [data, setData] = useState("");
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const result = await richiestaJson()
+          setData(result)
+        } catch (error) {
+          console.error('Error fetching data:', error)
+        }
+      }
+      fetchData()
+    }, [])
+  
+    return (
+        <table class="myTable" id="myTable">
+        <tbody><tr class="header">
+            <th id="titoloNumTav" onclick="sortTable(0)">Table</th>
+            <th id="titoloNomeP1" onclick="sortTable(1)">Player 1 ▼</th>
+            <th>Points</th>
+            <th>Player 2</th>
+            <th>Points</th>
+        </tr>
+    
+        </tbody><tbody id="mioTable" dangerouslySetInnerHTML={{ __html: data }}></tbody></table>
+    )
+  }
+  
+export default Pairings;
+
+/*
 export default async function Pairings() {
-    let html = await richiestaJson();
+    const [ data, setData ] = useState(null)
+
+    useEffect(() => {
+      async function getData() {
+        const data = await richiestaJson()
+        setData(data)
+      }
+      getData()
+    }, [])
+  
+    if (!data) return <div>No profile</div>
     return <table class="myTable" id="myTable">
     <tbody><tr class="header">
         <th id="titoloNumTav" onclick="sortTable(0)">Table</th>
@@ -32,12 +77,14 @@ export default async function Pairings() {
         <th>Points</th>
     </tr>
 
-    </tbody><tbody id="mioTable">{html}</tbody></table>;
+    </tbody><tbody id="mioTable">{data}</tbody></table>;
   }
+  */
 
 //richiama json
 async function richiestaJson() {
-  const nomeJson = "https://whatsmytable.com/Paupergeddon/jsonFile/event.json?v=" + Date.now()
+  // const nomeJson = "https://whatsmytable.com/Paupergeddon/jsonFile/event.json?v=" + Date.now()
+  const nomeJson = "https://zzux4dndye64nfcxefs3czn7dm0mgeai.lambda-url.eu-central-1.on.aws/"
   const rispostaJson = await fetch(nomeJson)
   //const rispostaJson = await fetch("https://cors-anywhere.herokuapp.com/https://whatsmytable.com/jsonFile/event.json");
   const datiJson = await rispostaJson.json();
@@ -47,12 +94,14 @@ async function richiestaJson() {
   return stampaPairings(pairingArray);
 }
 
+/*
 function modificaTitolo(dati) {
   var titolo = document.getElementById('titolo')
   var titoloTorneo = dati.EventName;
   var roundAttuale = dati.CurrentRoundNumber;
   titolo.innerHTML = titoloTorneo + ' - Round ' + roundAttuale;
 }
+*/
 
 function arrayGiocatori(dati) {
   var giocatori = {};
@@ -109,7 +158,7 @@ function generaPairings(dati) {
 }
 
 function stampaPairings(data){
-    var table = document.getElementById('mioTable');
+    // var table = document.getElementById('mioTable');
     var contenutoTable = '';
     for (var i = 0; i < data.length; i++){
         var puntiP1 = data[i].puntiPlayer1;
@@ -128,6 +177,7 @@ function stampaPairings(data){
     return contenutoTable
 }
 
+/*
 function sortTable(colonna){//da migliorare per qualsiasi numero di colonne
   if (colonna != colonnaOrdinata) {
     colonnaOrdinata = colonna;
@@ -164,3 +214,4 @@ function sortTable(colonna){//da migliorare per qualsiasi numero di colonne
   titoloGiocatore.innerHTML = nuovoTitoloGiocatore;
   }
 }
+*/
